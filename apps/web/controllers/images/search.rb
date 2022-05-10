@@ -1,5 +1,4 @@
 # apps/web/controllers/home/index.rb
-
 module Web
   module Controllers
     module Images
@@ -9,8 +8,8 @@ module Web
         expose :images
 
         def call(params)
-          #byebug
-          @images = UserRepository.new.find_with_images(current_user.id).images
+
+          @images = Services::Http::Giphy::Search.new(params[:search].to_h).call
         end
       end
     end

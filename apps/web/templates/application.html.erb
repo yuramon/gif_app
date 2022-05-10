@@ -7,6 +7,16 @@
   </head>
   <body>
   <h1><%= link_to 'Gif Application', '/' %></h1>
+  <div class="ib-2">
+      <%= form_for :search, '/search', method: :get do
+        div do
+          text_field :q
+        end
+
+        submit 'Search'
+      end
+      %>
+  </div>
   <div class = "ib">
     <%=
       form_for :user, routes.new_user_path, method: :get do
