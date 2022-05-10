@@ -6,5 +6,17 @@
   </head>
   <body>
     <%= yield %>
+    <div>
+      <%=
+          form_for :session, routes.new_user_path, method: :get do
+            submit 'Registration' unless session[:user_id]
+          end
+      %>
+    </div>
+    <%=
+      form_for :session, routes.session_path, method: :delete do
+        submit 'Sign out' if session[:user_id]
+      end
+    %>
   </body>
 </html>

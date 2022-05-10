@@ -6,6 +6,7 @@ gem 'faraday'
 gem 'hanami', '~> 1.3'
 gem 'hanami-model', '~> 1.3'
 gem 'rake'
+gem 'bcrypt'
 
 gem 'pg'
 
