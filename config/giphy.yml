@@ -1,0 +1,12 @@
+defaults: &defaults
+  url: 'https://api.giphy.com/'
+  api_key: 'dIYj5nXHZy1ElXUNG8HCwaXwDLGCcTEh'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
