@@ -1,3 +1,25 @@
-# apps/web/templates/home/index.html.erb
-<h1>Gif Application</h1>
-<img alt="this slowpoke moves" src="https://giphy.com/embed/12vJgj7zMN3jPy" />
+<h2><%= link_to 'Favourites', routes.images_path %></h2>
+
+<h2>Random gifs</h2>
+<% if images.any? %>
+  <div id="images">
+    <% images.each do |image| %>
+      <div class="images">
+        <img alt=<%=image[:id]%> src=<%=image[:url]%> />
+        <%=
+          form_for :image, 'images/', method: :post, remote: true do
+            div do
+              hidden_field :id, value: image[:id]
+            end
+            div do
+              hidden_field :url, value:  image[:url]
+            end
+            submit 'Add to favourites', :remote => true
+          end
+        %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="placeholder">There are some problems.</p>
+<% end %>

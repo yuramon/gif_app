@@ -1,0 +1,13 @@
+<h2>My favourite gifs</h2>
+
+<% if images.any? %>
+  <div id="images">
+    <% images.each do |image| %>
+      <div class="images">
+        <img alt=<%=image.id%> src=<%=image.url%> />
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="placeholder">There are some problems.</p>
+<% end %>

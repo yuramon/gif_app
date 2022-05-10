@@ -2,14 +2,15 @@
 
 module Web
   module Controllers
-    module Home
+    module Images
       class Index
         include Web::Action
 
         expose :images
 
         def call(params)
-          @images = Services::Http::Giphy::GetTrending.new(params.to_h).call
+          #byebug
+          @images = UserRepository.new.find_with_images(current_user.id).images
         end
       end
     end

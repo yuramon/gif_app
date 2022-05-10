@@ -3,20 +3,25 @@
   <head>
     <title>Web</title>
     <%= favicon %>
+    <%= stylesheet 'application' %>
   </head>
   <body>
-    <%= yield %>
-    <div>
-      <%=
-          form_for :session, routes.new_user_path, method: :get do
-            submit 'Registration' unless session[:user_id]
-          end
-      %>
-    </div>
+  <h1><%= link_to 'Gif Application', '/' %></h1>
+  <div class = "ib">
+    <%=
+      form_for :user, routes.new_user_path, method: :get do
+        submit 'Registration' unless session[:user_id]
+      end
+    %>
+  </div>
+  <div class="ib">
     <%=
       form_for :session, routes.session_path, method: :delete do
         submit 'Sign out' if session[:user_id]
       end
     %>
+  </div>
+
+    <%= yield %>
   </body>
 </html>

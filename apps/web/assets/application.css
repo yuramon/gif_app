@@ -1,0 +1,7 @@
+.ib {
+    display: inline-block;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 40px;
+    right: 60px;
+}
