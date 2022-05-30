@@ -1,6 +1,7 @@
 defaults: &defaults
   url: 'https://api.giphy.com/'
   api_key: 'dIYj5nXHZy1ElXUNG8HCwaXwDLGCcTEh'
+  api_param_name: 'api_key'
 
 development:
   <<: *defaults

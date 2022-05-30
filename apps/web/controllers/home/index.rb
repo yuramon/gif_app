@@ -6,10 +6,11 @@ module Web
       class Index
         include Web::Action
 
-        expose :images
+        expose :images_giphy, :images_tenor
 
         def call(params)
-          @images = Services::Http::Giphy::GetTrending.new(params.to_h).call
+          @images_giphy = Services::Http::Giphy::GetTrending.new(params.to_h).call
+          @images_tenor = Services::Http::Tenor::GetTrending.new(params.to_h).call
         end
       end
     end

@@ -1,0 +1,22 @@
+<% if images&.any? %>
+  <div id="images">
+    <% images.each do |image| %>
+      <div class="images">
+        <img alt=<%=image[:id]%> src=<%=image[:url]%> />
+        <%=
+          form_for :image, 'images/', method: :post, remote: true do
+            div do
+              hidden_field :id, value: image[:id]
+            end
+            div do
+              hidden_field :url, value:  image[:url]
+            end
+            submit 'Add to favourites', :remote => true
+          end
+        %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p class="placeholder">There are some problems.</p>
+<% end %>

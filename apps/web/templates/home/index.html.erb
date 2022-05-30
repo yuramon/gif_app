@@ -1,25 +1,15 @@
 <h2><%= link_to 'Favourites', routes.images_path %></h2>
 
 <h2>Random gifs</h2>
-<% if images.any? %>
-  <div id="images">
-    <% images.each do |image| %>
-      <div class="images">
-        <img alt=<%=image[:id]%> src=<%=image[:url]%> />
-        <%=
-          form_for :image, 'images/', method: :post, remote: true do
-            div do
-              hidden_field :id, value: image[:id]
-            end
-            div do
-              hidden_field :url, value:  image[:url]
-            end
-            submit 'Add to favourites', :remote => true
-          end
-        %>
-      </div>
-    <% end %>
+
+<div class="row">
+  <div class="column">
+    <h3>Giphy</h3>
+    <%= render partial: 'partials/images', locals: { images: images_giphy } %>
   </div>
-<% else %>
-  <p class="placeholder">There are some problems.</p>
-<% end %>
+
+  <div class="column">
+    <h3>Tenor</h3>
+    <%= render partial: 'partials/images', locals: { images: images_tenor } %>
+  </div>
+</div>

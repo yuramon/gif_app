@@ -1,0 +1,13 @@
+defaults: &defaults
+  url: 'https://g.tenor.com/v1/'
+  api_key: 'FT8NIS9AB8DI'
+  api_param_name: 'key'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

@@ -6,6 +6,7 @@ module Web
         class GetById < Base
 
           def initialize(id)
+            super
             @id = id
           end
 

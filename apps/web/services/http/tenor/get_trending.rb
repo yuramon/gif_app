@@ -1,22 +1,23 @@
 # frozen_string_literal: true
-
+require 'byebug'
 module Web
   module Services
     module Http
-      module Giphy
-        class Search < Base
+      module Tenor
+        class GetTrending < BaseTenor
 
           def call
-            response = get('v1/gifs/search')
+            response = get('trending')
 
             unless response.success?
               return log_error("Something goes wrong. Status: #{response.status}")
             end
 
-            JSON.parse(response.body).dig('data').map do |imag|
+
+            JSON.parse(response.body).dig('results').map do |imag|
               {
                 id: imag.dig('id'),
-                url: imag.dig('images', 'original', 'url')
+                url: imag.dig('media', 0, 'gif', 'url')
               }
             end
           end
@@ -25,3 +26,5 @@ module Web
     end
   end
 end
+
+

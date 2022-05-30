@@ -3,17 +3,26 @@ module Web
   module Services
     module Http
       class Base
-        GIPHY_CONFIG = YAML.load_file('config/giphy.yml').fetch('defaults')
+        attr_reader :base_configs, :query_params
+
+        # @api public
+        # Public: Set base configs for API call. By default configs set for giphy API.
+        # @param [Hash] query_params query params
+        #
+        def initialize(query_params = {})
+          @base_configs = YAML.load_file('config/giphy.yml').fetch('defaults')
+          @query_params = query_params
+        end
 
         # @api public
         # Public: Makes a GET request using the Faraday HTTP Client.
         #
         # @param [String] path specific API action
-        # @param [Hash] query_params query params
         #
         # @return [Faraday::Response] instance of Faraday::Response class
-        def get(path, query_params = {})
-          query_params[:api_key] = GIPHY_CONFIG.fetch('api_key')
+        def get(path)
+          param = base_configs.fetch('api_param_name')&.to_sym
+          query_params[param] = base_configs.fetch('api_key')
 
           connection.get(path) do |req|
             req.params = query_params
@@ -27,7 +36,7 @@ module Web
         #
         # @return [Faraday::Connection] Faraday::Connection object
         def connection
-          Faraday.new(url: GIPHY_CONFIG.fetch('url'), headers: headers)
+          Faraday.new(url: base_configs.fetch('url'), headers: headers)
         end
 
         # @api private

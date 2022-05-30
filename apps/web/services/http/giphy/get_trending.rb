@@ -5,12 +5,9 @@ module Web
     module Http
       module Giphy
         class GetTrending < Base
-          def initialize(params = {})
-            @params = params
-          end
 
           def call
-            response = get('v1/gifs/trending', @params)
+            response = get('v1/gifs/trending')
 
             unless response.success?
               return log_error("Something goes wrong. Status: #{response.status}")
