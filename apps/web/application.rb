@@ -145,7 +145,7 @@ module Web
 
         # Specify sources for assets
         #
-        sources << %w[assets ../../public/assets]
+        sources << %w[assets]
       end
 
       ##
@@ -290,7 +290,7 @@ module Web
         # Don't compile static assets in production mode (eg. Sass, ES6)
         #
         # See: http://www.rubydoc.info/gems/hanami-assets#Configuration
-        compile false
+        compile true
 
         # Use fingerprint file name for asset paths
         #
