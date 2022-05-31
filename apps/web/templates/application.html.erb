@@ -8,6 +8,7 @@
   <body>
   <h1><%= link_to 'Gif Application', '/' %></h1>
   <div class="ib-2">
+    <% if session[:user_id] %>
       <%= form_for :search, '/search', method: :get do
         div do
           text_field :q
@@ -16,6 +17,7 @@
         submit 'Search'
       end
       %>
+    <% end %>
   </div>
   <div class = "ib">
     <%=
