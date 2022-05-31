@@ -290,7 +290,7 @@ module Web
         # Don't compile static assets in production mode (eg. Sass, ES6)
         #
         # See: http://www.rubydoc.info/gems/hanami-assets#Configuration
-        compile true
+        compile false
 
         # Use fingerprint file name for asset paths
         #
@@ -308,7 +308,7 @@ module Web
         # Subresource Integrity
         #
         # See: https://guides.hanamirb.org/assets/content-delivery-network/#subresource-integrity
-        subresource_integrity :sha256
+        # subresource_integrity :sha256
       end
     end
   end
