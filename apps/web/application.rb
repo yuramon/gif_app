@@ -145,7 +145,7 @@ module Web
 
         # Specify sources for assets
         #
-        sources << %w[assets public/assets]
+        sources << %w[assets vendor/assets]
       end
 
       ##
