@@ -68,7 +68,7 @@ GEM
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (2.0.2)
     hanami (1.3.5)
-      bundler (< 3)
+      bundler (>= 1.6, < 3)
       concurrent-ruby (~> 1.0)
       dry-cli (~> 0.5)
       hanami-assets (~> 1.3)
@@ -203,6 +203,9 @@ DEPENDENCIES
   rake
   rspec
   shotgun
+
+RUBY VERSION
+   ruby 2.6.6p146
 
 BUNDLED WITH
    2.3.13

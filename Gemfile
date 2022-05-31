@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+ruby '2.6.6'
 gem 'faraday'
 gem 'hanami', '~> 1.3'
 gem 'hanami-model', '~> 1.3'
