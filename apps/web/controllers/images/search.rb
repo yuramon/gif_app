@@ -8,8 +8,7 @@ module Web
         expose :images
 
         def call(params)
-
-          @images = Services::Http::Giphy::Search.new(params[:search].to_h).call
+          @images = Services::Http::SearchFactory.call(params[:search].to_h)
         end
       end
     end

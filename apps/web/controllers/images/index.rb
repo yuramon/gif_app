@@ -8,7 +8,7 @@ module Web
 
         expose :images
 
-        def call(params)
+        def call(_)
           @images = UserRepository.new.find_with_images(current_user.id).images
         end
       end

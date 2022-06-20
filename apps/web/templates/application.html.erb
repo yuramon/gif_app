@@ -14,6 +14,11 @@
           text_field :q
         end
 
+        label :giphy
+        radio_button :service_type, 'giphy', id: 'giphy'
+        label :tenor
+        radio_button :service_type, 'tenor', id: 'tenor'
+
         submit 'Search'
       end
       %>
